@@ -1,0 +1,8 @@
+<div class="current-weather"><h4>Five Day Forecast for {{city}}</h4>
+	<div ng-repeat="day in weather | filter:{dt_txt: '00:00:00'}">
+		{{day.dt_txt}}
+		{{day.main.temp}}<br />
+	</div>
+	<span am-time-ago="message.time">Message age: {{message.ageInMinutes | amDurationFormat : 'minute' }}</span>
+	<map center="{{city}}"/>
+</div>
