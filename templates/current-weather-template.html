@@ -3,6 +3,11 @@
 		{{day.dt_txt}}
 		{{day.main.temp}}<br />
 	</div>
-	<span am-time-ago="message.time">Message age: {{message.ageInMinutes | amDurationFormat : 'minute' }}</span>
+	
+	<div>
+		<span am-time-ago="message.time"></span>
+	</div>
+	
+
 	<map center="{{city}}"/>
 </div>

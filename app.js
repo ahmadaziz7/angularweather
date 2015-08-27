@@ -1,11 +1,10 @@
-angular.module('DirectiveApp', ['ngMap', 'angularMoment'])
+angular.module('DirectiveApp', ['ngMap', 'angularMoment', 'xeditable'])
 
 	.controller('MainCtrl', ['$scope', function($scope){
 		$scope.test = "Hello World";
-		$scope.message = {
-			text: 'hello world!',
-	    	time: new Date()
-		}
+		$scope.user = {
+		  name: 'awesome user'
+		};
 	}])
 
 	.constant('angularMomentConfig', {
@@ -32,12 +31,21 @@ angular.module('DirectiveApp', ['ngMap', 'angularMoment'])
 	              $scope.weather = data.list;
 	            });
 	        }
+
+        	$scope.message = {
+        		text: 'hello world!',
+            	time: new Date()
+        	}
 	    }],
 	    link: function (scope, element, attrs) {
 	      scope.weather = scope.getWeather(attrs.city);
 	    }
 	  }
 	})
+
+	.run(function(editableOptions) {
+	  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+	});
 
 	
 
